@@ -99,7 +99,7 @@ $(document).ready(function(){
 		} else {
 			$("#jumbles").hide();
 			$("#result").show();
-			$("#result").addClass("redText");
+			$("#result").addClass("red-text text-accent-2");
 			$("#result").text($(this).text() + " is incorrect!");
 			$("#tryAgain").show();
 			//alert($(this).text() + " is incorrect.");

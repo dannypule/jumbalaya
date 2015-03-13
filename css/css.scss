@@ -46,6 +46,10 @@ body {
 	height: 60px;
 }
 
+.center {
+	margin: 0 auto;
+}
+
 #top-title {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -77,4 +81,9 @@ body {
 
 .redText {
 	color: #FF3333;
+}
+
+.controlButton {
+	width: 60%;
+	margin: 0 auto;
 }
