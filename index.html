@@ -13,7 +13,7 @@
     <body>
     <div id="mainContent" class="container card-panel blue lighten-2">
       <div class="card-panel blue darken-2">
-        <div class="row">
+        <div class="row" id="title">
           <div class="col s12 left-align white-text">
             <h2 id="top-title">Jumbalaya</h2>
           </div>
@@ -21,29 +21,39 @@
         <div class="col s12 left-align white-text"><h6>A word workout game</h6></div>
       </div>
       <div class="row">
-        <div class="col s12 right-align white-text"><h5>Select the matching word</h5></div>
+        <div class="col s12 right-align light-blue-text text-darken-4"><h5>Select the matching word</h5></div>
       </div>
       <div class="row">
         <div id="mainWordDiv" class="col s12 center-align white-text">
           <h1 id="mainWord">WORD</h1>
         </div>
       </div>
-      <div class="row">
-        <div class="col s6 center-align btnContain">
-          <div class="waves-effect waves-light btn-large light-blue">WORDS</div>
+
+      <div id="jumbles">
+        <div class="row">
+          <div class="col s6 center-align btnContain">
+            <div id="jumbleOne" class="jumbleButton waves-effect waves-light btn-large light-blue">WORDS</div>
+          </div>
+          <div class="col s6 center-align valign">
+            <div id="jumbleTwo" class="jumbleButton waves-effect waves-light btn-large light-blue">WORDS</div>
+          </div>
         </div>
-        <div class="col s6 center-align valign">
-          <div class="waves-effect waves-light btn-large light-blue">WORDS</div>
+
+        <div class="row">
+          <div class="col s6 center-align">
+            <div id="jumbleThree" class="jumbleButton waves-effect waves-light btn-large light-blue">WORDS</div>
+          </div>
+          <div class="col s6 center-align">
+            <div id="jumbleFour" class="jumbleButton waves-effect waves-light btn-large light-blue">WORDS</div>
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s6 center-align">
-          <div class="waves-effect waves-light btn-large light-blue">WORDS</div>
-        </div>
-        <div class="col s6 center-align">
-          <div class="waves-effect waves-light btn-large light-blue">WORDS</div>
-        </div>
+      <div>
+        <button id="tryAgain">Try Again?</button>
+        <button id="continue">Continue</button>
+        <button id="startAgain">Start From The Beginning?</button>
+
       </div>
 
       <div class="row">
@@ -51,7 +61,7 @@
               <h5 id="milliseconds"></h5>
         </div>
         <div class="col s4 left-align">
-              <h5 id="milliseconds"><span class="white-text">Milliseconds: </span><span>5000</span></h5>
+              <h5 id="milliseconds"><span class="white-text">Milliseconds: </span><span id="timerText" class="light-blue-text text-darken-4"></span></h5>
         </div>
       </div>
       
@@ -59,5 +69,6 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/app.js"></script>
     </body>
   </html>

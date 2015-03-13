@@ -1,11 +1,16 @@
 body {
 	font-family: 'Montserrat', sans-serif;
+	background-color: #e1f5fe;
+}
+
+#title {
+	margin-bottom: 10px;
 }
 
 #mainContent {
 	height: 40rem;
 	width: 50%;
-	min-width: 800px;
+	min-width: 900px;
 	//border: 1px solid black;
 	margin: 5rem auto;
 	position: absolute;
@@ -52,4 +57,24 @@ body {
 
 .card-panel {
 	padding: 10px 20px;
+}
+
+#tryAgain {
+		display: none;
+}
+
+#continue {
+	display: none;
+}
+
+#startAgain {
+	display: none;
+}
+
+.greenText {
+	color: #67B32D;
+}
+
+.redText {
+	color: #FF3333;
 }
