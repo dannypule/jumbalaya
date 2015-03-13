@@ -1,0 +1,55 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#mainContent {
+	height: 40rem;
+	width: 50%;
+	min-width: 800px;
+	//border: 1px solid black;
+	margin: 5rem auto;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+#mainWordDiv {
+	margin-bottom: 30px;
+}
+
+#mainWord {
+	font-size: 6rem;
+	font-weight: black;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.aBorder {
+	border: 1px solid black;
+}
+
+.btn-large {
+	//border: 1px solid black;
+	padding: 0 7rem;
+	font-size: 3rem;
+}
+
+.btnContain {
+	height: 60px;
+}
+
+#top-title {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#milliseconds {
+	margin: 8px 0;
+}
+
+.card-panel {
+	padding: 10px 20px;
+}
