@@ -11,7 +11,7 @@
     </head>
 
     <body>
-    <div id="mainContent" class="container card-panel blue lighten-2">
+    <div id="mainContent" class="container card-panel white">
       <div class="card-panel blue darken-2">
         <div class="row" id="title">
           <div class="col s12 left-align white-text">
@@ -21,10 +21,13 @@
         <div class="col s12 left-align white-text"><h6>A word workout game</h6></div>
       </div>
       <div class="row">
-        <div class="col s12 right-align light-blue-text text-darken-4"><h5 id="selectWord">Select the matching word</h5></div>
+        <div class="col s6 left-align">
+              <h5 id="milliseconds"><span class="blue-text">Milliseconds: </span><span id="timerText" class="light-blue-text text-darken-4"></span></h5>
+        </div>
+        <div class="col s6 right-align light-blue-text text-darken-4"><h5 id="selectWord">Workout the word</h5></div>
       </div>
       <div class="row">
-        <div id="mainWordDiv" class="col s12 center-align white-text">
+        <div id="mainWordDiv" class="col s12 center-align blue-text">
           <h1 id="mainWord">WORD</h1>
         </div>
       </div>
@@ -61,17 +64,7 @@
         <div class="col s12 center-align btn-large center" id="continue">Continue</div>
 
         <div class="col s12 center-align btn-large center" id="startAgain">Start From The Beginning?</div> 
-      </div>
-
-      <div class="row">
-        <div class="col s8 left-align">
-              <h5 id="milliseconds"></h5>
-        </div>
-        <div class="col s4 left-align">
-              <h5 id="milliseconds"><span class="white-text">Milliseconds: </span><span id="timerText" class="light-blue-text text-darken-4"></span></h5>
-        </div>
-      </div>
-      
+      </div>      
     </div>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
