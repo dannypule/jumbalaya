@@ -89,18 +89,20 @@ $(document).ready(function(){
 	// func to determine if selected word is correct
 	function determineIfCorrect (){
 		clearInterval(intervalHandleTime);
-		if ($(this).find(".jumbledWord").text() == correctAnswer) {
+		if ($(this).text() == correctAnswer) {
 			$("#jumbles").hide();
 			$("#result").show();
-			$("#result").addClass("greenText");
-			$("#result").text(correctAnswer + " is correct!");
+			$("#result").removeClass("red-text text-accent-2");
+			$("#result").addClass("green-text");
+			$("#result").text(correctAnswer + " is correct");
 			$("#continue").show();
 			//alert(correctAnswer + "  is correct!");
 		} else {
 			$("#jumbles").hide();
 			$("#result").show();
+			$("#result").removeClass("green-text");
 			$("#result").addClass("red-text text-accent-2");
-			$("#result").text($(this).text() + " is incorrect!");
+			$("#result").text($(this).text() + " is incorrect");
 			$("#tryAgain").show();
 			//alert($(this).text() + " is incorrect.");
 		}

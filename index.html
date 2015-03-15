@@ -22,9 +22,9 @@
       </div>
       <div class="row">
         <div class="col s6 left-align">
-              <h5 id="milliseconds"><span class="blue-text">Milliseconds: </span><span id="timerText" class="light-blue-text text-darken-4"></span></h5>
+              <h5 id="milliseconds"><span class="blue-text">Time remaining: </span><span id="timerText" class="light-blue-text text-darken-4"></span></h5>
         </div>
-        <div class="col s6 right-align light-blue-text text-darken-4"><h5 id="selectWord">Workout the word below</h5></div>
+        <div class="col s6 right-align blue-text"><h5 id="selectWord">Workout the word below</h5></div>
       </div>
       <div class="row">
         <div id="mainWordDiv" class="col s12 center-align blue-text">
@@ -52,18 +52,22 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12 center-align">
-          <h3 id="result"></h3>
+        <div class="row">
+          <div class="col s12 center-align">
+            <h3 id="result"></h3>
         </div>
 
         <div class="col s12 center-align">
-          <div class="center-align btn-large controlButton grey lighten-1" id="tryAgain">Try Again?</div>
+          <div class="center-align btn-large controlButton red darken-1" id="tryAgain">Retry</div>
         </div>
 
-        <div class="col s12 center-align btn-large center" id="continue">Continue</div>
+        <div class="col s12 center-align">
+            <div class="btn-large controlButton green" id="continue">Continue</div>
+         </div>
 
-        <div class="col s12 center-align btn-large center" id="startAgain">Start From The Beginning?</div> 
+        <div class="col s12 center-align">
+            <div class="btn-large controlButton blue darken-3" id="startAgain">Start From The Beginning?</div> 
+         </div>
       </div>      
     </div>
       <!--Import jQuery before materialize.js-->
