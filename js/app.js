@@ -50,12 +50,12 @@ $(document).ready(function(){
 
 	// GAME MECHANICS 
 	// set time
-	var easyTime = 1000;
-	var mediumTime = 800;
-	var hardTime = 600;
-	var extremeHardTime = 300;
+	var easyTime = 10;
+	var mediumTime = 80;
+	var hardTime = 60;
+	var extremeHardTime = 30;
 
-	var gameTimeMode = mediumTime;
+	var gameTimeMode = extremeHardTime;
 
 	// set initial time countdown
 	var currentTime = gameTimeMode;
@@ -77,7 +77,7 @@ $(document).ready(function(){
 		}
 	}
 
-	intervalHandleTime = setInterval(decreaseTime, 10);
+	intervalHandleTime = setInterval(decreaseTime, 100);
 
 	// display words on screen
 	$("#mainWord").text(mainWord);
@@ -117,7 +117,7 @@ $(document).ready(function(){
 		$("#result").removeClass("greenText");
 		$("#result").removeClass("redText");
 		currentTime = gameTimeMode;
-		intervalHandleTime = setInterval(decreaseTime, 10);
+		intervalHandleTime = setInterval(decreaseTime, 100);
 	}
 
 	// continue to next word
@@ -139,7 +139,7 @@ $(document).ready(function(){
 
 			// set timings
 			currentTime = gameTimeMode;
-			intervalHandleTime = setInterval(decreaseTime, 10);
+			intervalHandleTime = setInterval(decreaseTime, 100);
 
 			// assign variables
 			mainWord = wordList[currentWord].originalWord;

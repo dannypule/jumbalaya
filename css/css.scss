@@ -1,3 +1,7 @@
+*:not(body):not(html) {
+	//border: 1px dashed grey;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	//background-color: #e1f5fe;
@@ -9,7 +13,7 @@ body {
 }
 
 #mainContent {
-	height: 40rem;
+	height: 37rem;
 	width: 50%;
 	min-width: 900px;
 	//border: 1px solid black;
