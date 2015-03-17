@@ -37,13 +37,21 @@ body {
 	margin-bottom: 0;
 }
 
+#milliseconds {
+	cursor: pointer;
+}
+
+#tries {
+	cursor: pointer;
+}
+
 .aBorder {
 	border: 1px solid black;
 }
 
 .btn-large {
 	//border: 1px solid black;
-	padding: 0 7rem;
+	padding: 0;
 	font-size: 3rem;
 }
 
@@ -98,5 +106,16 @@ body {
 .no-lf-padding {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+.jumbleButton {
+	width: 380px;
+}
+
+#goodResult {
+	color: #4caf50;
+}
+#badResult {
+	color: #ff5252;
 }
 

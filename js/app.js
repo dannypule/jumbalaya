@@ -86,9 +86,7 @@ $(document).ready(function(){
 			clearInterval(intervalHandleTime);
 
 			$("#jumbles").hide();
-			$("#result").removeClass("green-text");
-			$("#result").addClass("red-text text-accent-2");
-			$("#result").text("Time ran out");
+			$("#badResult").text("You ran out of time");
 			$("#tryAgain").show();
 			$("#continue").hide();
 		}
@@ -96,6 +94,27 @@ $(document).ready(function(){
 
 	// decreaseTime function runs every x number of seconds
 	intervalHandleTime = setInterval(decreaseTime, 100);
+
+	// function to pause and unpause time
+	$('#milliseconds').on('click', function (){
+		if (intervalHandleTime) {
+			clearInterval(intervalHandleTime);
+			intervalHandleTime = false;
+		} else {
+			intervalHandleTime = setInterval(decreaseTime, 100);
+		}
+	});
+
+	// function to increase number of tries
+	$('#tries').on('click', function () {
+		if (tries >= 10) {
+			// do nothing
+		} else { // else increase tries
+			tries++;
+			$('#triesText').text(tries);
+		}
+		
+	});
 
 	// display words on screen
 	$("#mainWord").text(mainWord); // this is the main word
@@ -119,11 +138,10 @@ $(document).ready(function(){
 		if ($(this).text() == correctAnswer) {
 			$("#jumbles").hide();
 			$("#result").show();
-			$("#result").removeClass("red-text text-accent-2");
-			$("#result").addClass("green-text");
-			$("#result").text(correctAnswer + " is correct");
+			$("#goodResult").text(correctAnswer + " is correct");
 			$("#continue").show();
 			//alert(correctAnswer + "  is correct!");
+			return; // prevents further execution of function
 		} else {
 			tries--; // if answer if wrong, reduce tries
 			$('#triesText').text(tries); // update triesText on view
@@ -132,14 +150,13 @@ $(document).ready(function(){
 		if (!(checkTries(tries))) { // check if there are any tries left
 			$("#jumbles").hide();
 			$("#result").show();
-			$("#result").html($(this).text() + " is incorrect <br> You've run out of tries");
+			$("#badResult").html($(this).text() + " is incorrect <br> You've run out of tries");
 			$("#startAgain").show();
 		} else {
+			//alert('hi');
 			$("#jumbles").hide();
 			$("#result").show();
-			$("#result").removeClass("green-text");
-			$("#result").addClass("red-text text-accent-2");
-			$("#result").text($(this).text() + " is incorrect");
+			$("#badResult").text($(this).text() + " is incorrect");
 			$("#tryAgain").show();
 			$('#triesText').text(tries);
 			//alert($(this).text() + " is incorrect.");
@@ -148,12 +165,21 @@ $(document).ready(function(){
 
 	// start current word again
 	function startAgain() {
+		
 		$("#jumbles").show();
 		$("#result").hide();
 		$("#tryAgain").hide();
 		$("#continue").hide();
-		$("#result").removeClass("greenText");
-		$("#result").removeClass("redText");
+		$("#badResult").text('');
+		$("#goodResult").text('');
+
+		mainWord = wordList[currentWord].originalWord;
+		jumbleOne = wordList[currentWord].jumbleOne;
+		jumbleTwo = wordList[currentWord].jumbleTwo;
+		jumbleThree = wordList[currentWord].jumbleThree;
+		jumbleFour = wordList[currentWord].jumbleFour;
+		correctAnswer = wordList[currentWord].correctAnswer;
+
 		currentTime = gameTimeMode;
 		intervalHandleTime = setInterval(decreaseTime, 100);
 	}
@@ -172,8 +198,8 @@ $(document).ready(function(){
 			$("#result").hide();
 			$("#tryAgain").hide();
 			$("#continue").hide();
-			$("#result").removeClass("greenText");
-			$("#result").removeClass("redText");
+			$("#badResult").text('');
+			$("#goodResult").text('');
 
 			// set timings
 			currentTime = gameTimeMode;
@@ -196,7 +222,8 @@ $(document).ready(function(){
 		} else {
 			$("#mainWord").text("");
 			$("#timer").hide();
-			$("#result").text("Fin");
+			$("#badResult").text('');
+			$("#goodResult").text("You've made it to the end!");
 			$("#continue").hide();
 			$("#startAgain").show();
 		}
@@ -209,10 +236,7 @@ $(document).ready(function(){
 	$("#tryAgain").click(startAgain);
 	$("#continue").click(nextWord);
 	$("#startAgain").click(function(){
-		currentWord = 0; // start from first word again
-		$("#startAgain").hide(); // hide the start again button 
-		initTries(); // reset tries
-		nextWord(); // shows words from word 0
+		startAgain(); // shows words from word 0
 	});
 
 	$('#tryAgain').keypress(function(e){
