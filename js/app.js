@@ -70,7 +70,7 @@ $(document).ready(function(){
 	currentTime--;	
 
 	// setup variables
-	/*$("#timerText")
+	/*$("#timerText") 
 	$("#jumbles")
 	$("#result")
 
