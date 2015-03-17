@@ -1,9 +1,6 @@
 $(document).ready(function(){
 
-	//var ml = moment().milliseconds(999);
-
 	// GAME WORDS
-
 	var wordList = [
 		{
 			originalWord: "WALES",
@@ -39,8 +36,9 @@ $(document).ready(function(){
 		}
 	];
 
-	var currentWord = 0;
+	var currentWord = 0; // start with word at array position 0
 
+	// get words from word list starting at position 0
 	var mainWord = wordList[currentWord].originalWord;
 	var jumbleOne = wordList[currentWord].jumbleOne;
 	var jumbleTwo = wordList[currentWord].jumbleTwo;
@@ -49,7 +47,7 @@ $(document).ready(function(){
 	var correctAnswer = wordList[currentWord].correctAnswer;
 
 	// GAME MECHANICS 
-	// set time
+	// set time modes
 	var easyTime = 10;
 	var mediumTime = 80;
 	var hardTime = 60;
@@ -57,10 +55,27 @@ $(document).ready(function(){
 
 	var gameTimeMode = extremeHardTime;
 
+	var tries;
+
+	function initTries () { // create function to encapsulate tries code
+		tries = 3;
+		$('#triesText').text(tries); // show initial tries count on page
+	}
+
+	initTries(); // use function to set up tries
+
 	// set initial time countdown
 	var currentTime = gameTimeMode;
 	$("#timerText").text(currentTime);
 	currentTime--;	
+
+	// setup variables
+	/*$("#timerText")
+	$("#jumbles")
+	$("#result")
+
+	$("#tryAgain")
+	$("#continue") */
 
 	function decreaseTime(){
 		if (currentTime > 0) {
@@ -71,20 +86,32 @@ $(document).ready(function(){
 			clearInterval(intervalHandleTime);
 
 			$("#jumbles").hide();
-			$("#result").hide();
+			$("#result").removeClass("green-text");
+			$("#result").addClass("red-text text-accent-2");
+			$("#result").text("Time ran out");
 			$("#tryAgain").show();
 			$("#continue").hide();
 		}
 	}
 
+	// decreaseTime function runs every x number of seconds
 	intervalHandleTime = setInterval(decreaseTime, 100);
 
 	// display words on screen
-	$("#mainWord").text(mainWord);
+	$("#mainWord").text(mainWord); // this is the main word
 	$("#jumbleOne").text(jumbleOne);
 	$("#jumbleTwo").text(jumbleTwo);
 	$("#jumbleThree").text(jumbleThree);
 	$("#jumbleFour").text(jumbleFour);
+
+	// check if any tries are left
+	function checkTries (num) {
+		if (num <= 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	// func to determine if selected word is correct
 	function determineIfCorrect (){
@@ -98,12 +125,23 @@ $(document).ready(function(){
 			$("#continue").show();
 			//alert(correctAnswer + "  is correct!");
 		} else {
+			tries--; // if answer if wrong, reduce tries
+			$('#triesText').text(tries); // update triesText on view
+		} 
+
+		if (!(checkTries(tries))) { // check if there are any tries left
+			$("#jumbles").hide();
+			$("#result").show();
+			$("#result").html($(this).text() + " is incorrect <br> You've run out of tries");
+			$("#startAgain").show();
+		} else {
 			$("#jumbles").hide();
 			$("#result").show();
 			$("#result").removeClass("green-text");
 			$("#result").addClass("red-text text-accent-2");
 			$("#result").text($(this).text() + " is incorrect");
 			$("#tryAgain").show();
+			$('#triesText').text(tries);
 			//alert($(this).text() + " is incorrect.");
 		}
 	}
@@ -171,8 +209,14 @@ $(document).ready(function(){
 	$("#tryAgain").click(startAgain);
 	$("#continue").click(nextWord);
 	$("#startAgain").click(function(){
-		currentWord = 0;
-		$("#startAgain").hide();
-		nextWord();
+		currentWord = 0; // start from first word again
+		$("#startAgain").hide(); // hide the start again button 
+		initTries(); // reset tries
+		nextWord(); // shows words from word 0
 	});
+
+	$('#tryAgain').keypress(function(e){
+      if(e.keyCode==13)
+      $('#tryAgain').click();
+    });
 });

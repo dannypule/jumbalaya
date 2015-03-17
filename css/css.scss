@@ -13,7 +13,7 @@ body {
 }
 
 #mainContent {
-	height: 37rem;
+	height: 38rem;
 	width: 50%;
 	min-width: 900px;
 	//border: 1px solid black;
@@ -64,12 +64,16 @@ body {
 	margin: 8px 0;
 }
 
+#tries {
+	margin: 0;
+}
+
 .card-panel {
 	padding: 10px 20px;
 }
 
 #tryAgain {
-		display: none;
+	display: none;
 }
 
 #continue {
@@ -81,6 +85,18 @@ body {
 }
 
 .controlButton {
-	width: 60%;
+	width: 50%;
 	margin: 0 auto;
 }
+
+.no-bottom-margin {
+	margin-bottom: 0;
+}
+.no-top-margin {
+	margin-top: 0;
+}
+.no-lf-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+

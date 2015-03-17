@@ -6,7 +6,7 @@ body {
   margin-bottom: 10px; }
 
 #mainContent {
-  height: 37rem;
+  height: 38rem;
   width: 50%;
   min-width: 900px;
   margin: 5rem auto;
@@ -30,7 +30,7 @@ body {
   border: 1px solid black; }
 
 .btn-large {
-  padding: 0 5rem;
+  padding: 0 7rem;
   font-size: 3rem; }
 
 .btnContain {
@@ -45,6 +45,9 @@ body {
 
 #milliseconds {
   margin: 8px 0; }
+
+#tries {
+  margin: 0; }
 
 .card-panel {
   padding: 10px 20px; }
@@ -61,5 +64,15 @@ body {
 .controlButton {
   width: 50%;
   margin: 0 auto; }
+
+.no-bottom-margin {
+  margin-bottom: 0; }
+
+.no-top-margin {
+  margin-top: 0; }
+
+.no-lf-padding {
+  padding-left: 0;
+  padding-right: 0; }
 
 /*# sourceMappingURL=css.css.map */
