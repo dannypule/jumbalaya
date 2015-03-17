@@ -84,9 +84,9 @@ $(document).ready(function(){
 		} else {
 			$("#timerText").text(currentTime);
 			clearInterval(intervalHandleTime);
-
 			$("#jumbles").hide();
 			$("#badResult").text("You ran out of time");
+			$('#result').show();
 			$("#tryAgain").show();
 			$("#continue").hide();
 		}
@@ -163,9 +163,39 @@ $(document).ready(function(){
 		}
 	}
 
-	// start current word again
+	// start from beginning
 	function startAgain() {
-		
+		currentWord = 0; // start from first word again
+		$("#startAgain").hide(); // hide the start again button 
+		initTries(); // reset tries
+
+		mainWord = wordList[currentWord].originalWord;
+		jumbleOne = wordList[currentWord].jumbleOne;
+		jumbleTwo = wordList[currentWord].jumbleTwo;
+		jumbleThree = wordList[currentWord].jumbleThree;
+		jumbleFour = wordList[currentWord].jumbleFour;
+		correctAnswer = wordList[currentWord].correctAnswer;
+
+		// display words on screen
+		$("#mainWord").text(mainWord); // this is the main word
+		$("#jumbleOne").text(jumbleOne);
+		$("#jumbleTwo").text(jumbleTwo);
+		$("#jumbleThree").text(jumbleThree);
+		$("#jumbleFour").text(jumbleFour);
+
+		$("#jumbles").show();
+		$("#result").hide();
+		$("#tryAgain").hide();
+		$("#continue").hide();
+		$("#badResult").text('');
+		$("#goodResult").text('');
+
+		currentTime = gameTimeMode;
+		intervalHandleTime = setInterval(decreaseTime, 100);
+	}
+
+	// try current word again
+	function tryAgain() {		
 		$("#jumbles").show();
 		$("#result").hide();
 		$("#tryAgain").hide();
@@ -223,9 +253,10 @@ $(document).ready(function(){
 			$("#mainWord").text("");
 			$("#timer").hide();
 			$("#badResult").text('');
-			$("#goodResult").text("You've made it to the end!");
+			$("#goodResult").html("You win! <br> With " + tries + " tries remaining.");
 			$("#continue").hide();
-			$("#startAgain").show();
+			$('#selectWord').text('');
+			//$("#startAgain").show();
 		}
 	}
 
@@ -233,11 +264,9 @@ $(document).ready(function(){
 	$(".jumbleButton").click(determineIfCorrect);
 
 	// try again and continue buttons
-	$("#tryAgain").click(startAgain);
+	$("#tryAgain").click(tryAgain);
 	$("#continue").click(nextWord);
-	$("#startAgain").click(function(){
-		startAgain(); // shows words from word 0
-	});
+	$("#startAgain").click(startAgain);
 
 	$('#tryAgain').keypress(function(e){
       if(e.keyCode==13)
