@@ -8,6 +8,13 @@ body {
 	background-color: #fff;
 }
 
+.disable-select {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
 #title {
 	margin-bottom: 10px;
 }
