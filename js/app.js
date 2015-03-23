@@ -53,7 +53,7 @@ $(document).ready(function(){
 	var hardTime = 60;
 	var extremeHardTime = 30;
 
-	var gameTimeMode = extremeHardTime;
+	var gameTimeMode = mediumTime;
 
 	var tries;
 
@@ -84,11 +84,14 @@ $(document).ready(function(){
 		} else {
 			$("#timerText").text(currentTime);
 			clearInterval(intervalHandleTime);
+			$("#mainWord").text('');
 			$("#jumbles").hide();
 			$("#badResult").text("You ran out of time");
 			$('#result').show();
 			$("#tryAgain").show();
 			$("#continue").hide();
+			tries--;
+			$('#triesText').text(tries);
 		}
 	}
 
@@ -135,6 +138,7 @@ $(document).ready(function(){
 	// func to determine if selected word is correct
 	function determineIfCorrect (){
 		clearInterval(intervalHandleTime);
+		$("#mainWord").text('');
 		if ($(this).text() == correctAnswer) {
 			$("#jumbles").hide();
 			$("#result").show();
@@ -195,7 +199,8 @@ $(document).ready(function(){
 	}
 
 	// try current word again
-	function tryAgain() {		
+	function tryAgain() {	
+		$("#mainWord").text(mainWord); 	
 		$("#jumbles").show();
 		$("#result").hide();
 		$("#tryAgain").hide();

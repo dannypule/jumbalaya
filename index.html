@@ -3,7 +3,7 @@
     <head>
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/simplegrid.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
       <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
       <link type="text/css" rel="stylesheet" href="css/css.css"  media="screen,projection"/>
 
@@ -13,21 +13,21 @@
 
     <body>
     <div id="mainContent" class="container card-panel white">
+
       <div class="card-panel blue darken-2">
         <div class="row" id="title">
           <div class="col s12 left-align white-text">
             <h2 id="top-title">Jumbalaya</h2>
           </div>
         </div>
-        <div class="col s12 left-align white-text"><h6>a word workout game</h6></div>
+        <div class="col s12 left-align white-text"><h6 id="tag-line">a word workout game</h6></div>
       </div>
+
       <div class="row no-bottom-margin">
         <div class="col s6 left-align">
               <h5 id="milliseconds"><span class="blue-text">Time: </span><span id="timerText" class="light-blue-text text-darken-4"></span></h5>
         </div>
         <div class="col s6 right-align blue-text"><h5 id="selectWord">Workout the word below</h5></div>
-      </div>
-      <div class="row">
         <div class="col s12 left-align">
           <h5 id="tries"><span class="blue-text">Tries: </span><span id="triesText" class="light-blue-text text-darken-4">3</span></h5>
         </div>
@@ -40,25 +40,22 @@
 
       <div id="jumbles">
         <div class="row">
-          <div class="col s6 center-align btnContain">
+          <div class="col s12 m12 l6 center-align">
             <div id="jumbleOne" class="jumbleButton btn-large light-blue">WORDS</div>
           </div>
-          <div class="col s6 center-align valign">
+          <div class="col s12 m12 l6 center-align">
             <div id="jumbleTwo" class="jumbleButton btn-large light-blue">WORDS</div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col s6 center-align">
+          <div class="col s12 m12 l6 center-align">
             <div id="jumbleThree" class="jumbleButton btn-large light-blue">WORDS</div>
           </div>
-          <div class="col s6 center-align">
+          <div class="col s12 m12 l6 center-align">
             <div id="jumbleFour" class="jumbleButton btn-large light-blue">WORDS</div>
           </div>
         </div>
       </div>
 
-        <div class="row">
+        <div class="row" id="results-row">
           <div class="col s12 center-align">
             <h3 id="result" class="no-top-margin"><span id="goodResult"></span><span id="badResult"></span></h3>
         </div>
@@ -77,7 +74,6 @@
       </div>      
     </div>
 
-      <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/app.js"></script>
